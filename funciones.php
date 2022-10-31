@@ -1,5 +1,7 @@
 <?php
 
+//Generar el calendario
+
 function calendario($año_calendario_, $dia_empieza)
 {
 
@@ -123,8 +125,6 @@ function calendario($año_calendario_, $dia_empieza)
                 $day_first = $dia["inicio"];
             }
 
-
-
             //para hallar los fines de semana
 
             if ($fin_de_semana == 7) {
@@ -159,10 +159,14 @@ function calendario($año_calendario_, $dia_empieza)
     echo "</div>";
 }
 
+//Año bisiesto
+
 function esBisiesto($año)
 {
     return !($año % 4) && ($año % 100 || !($año % 400));
 }
+
+//Generar año
 
 function añoGenerado($año)
 {
@@ -189,16 +193,14 @@ function pascua($añoPascua)
 
     $pascuaMes =  date("m", easter_date($añoPascua));
 
+    $arraySemanaSantaMarzo = [];
 
     if ($pascuaMes == 04) {
 
         $diaComienzoSemanaSanta = $pascua - 7;
         $diaComienzoMarzo = (31 - 7) + $pascua;
 
-
-        //semana santa en marzo
-        $arraySemanaSantaMarzo = [];
-
+        //Parte de la semana sanata en marzo
         if ($diaComienzoMarzo <= 31) {
 
             for ($diaSemanaSanta = $diaComienzoMarzo; $diaSemanaSanta <= 31; $diaSemanaSanta++) {
@@ -207,24 +209,19 @@ function pascua($añoPascua)
             }
         }
     } else {
+        //semana santa completa en marzo marzo
         $diaComienzoSemanaSanta = $pascua - 7;
         $diaComienzoMarzo = $pascua;
-
-        //semana santa en marzo
-        $arraySemanaSantaMarzo = [];
-
         for ($diaSemanaSanta =  $diaComienzoSemanaSanta; $diaSemanaSanta <= $diaComienzoMarzo; $diaSemanaSanta++) {
 
             array_push($arraySemanaSantaMarzo, $diaSemanaSanta);
         }
     }
 
-    //semana santa en abril
+    //Semana santa en abril (parte o completa)
     $arraySemanaSantaAbril = [];
 
     if ($pascuaMes == 04) {
-
-
 
         for ($diaSemanaSanta = ($diaComienzoSemanaSanta + 1); $diaSemanaSanta <= $pascua; $diaSemanaSanta++) {
 
@@ -237,6 +234,8 @@ function pascua($añoPascua)
     return [$arraySemanaSantaMarzo, $arraySemanaSantaAbril];
 }
 
+
+//Viernes no lectivo de semana santa
 
 function viernesNoLectivo($añoPascua)
 {
@@ -271,7 +270,7 @@ function viernesNoLectivo($añoPascua)
     return [$ViernesNoLectivoMarzo, $ViernesNoLectivoAbril];
 }
 
-//generar el mes
+//Generar el mes
 
 function mes($mes)
 
