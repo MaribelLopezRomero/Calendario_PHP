@@ -19,7 +19,7 @@
 
     //sacar el dia que empieza el año y el año.
 
-    $fecha = strtotime('2022-09-01');
+    $fecha = strtotime('1970-09-01');
 
     $dia_empieza = date("w", $fecha);
     $año_empieza = date("Y", $fecha);
@@ -29,6 +29,7 @@
 
 
     ?>
+
     <article class="leyenda">
 
         <div class="cuadro c_festivo"></div>

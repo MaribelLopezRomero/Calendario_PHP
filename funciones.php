@@ -193,14 +193,15 @@ function pascua($añoPascua)
 
     $pascuaMes =  date("m", easter_date($añoPascua));
 
+    //Semana Santa en Marzo
+
     $arraySemanaSantaMarzo = [];
 
     if ($pascuaMes == 04) {
 
-        $diaComienzoSemanaSanta = $pascua - 7;
         $diaComienzoMarzo = (31 - 7) + $pascua;
 
-        //Parte de la semana sanata en marzo
+        //Parte de la semana santa en marzo
         if ($diaComienzoMarzo <= 31) {
 
             for ($diaSemanaSanta = $diaComienzoMarzo; $diaSemanaSanta <= 31; $diaSemanaSanta++) {
@@ -211,8 +212,8 @@ function pascua($añoPascua)
     } else {
         //semana santa completa en marzo marzo
         $diaComienzoSemanaSanta = $pascua - 7;
-        $diaComienzoMarzo = $pascua;
-        for ($diaSemanaSanta =  $diaComienzoSemanaSanta; $diaSemanaSanta <= $diaComienzoMarzo; $diaSemanaSanta++) {
+        $diaPascuaMarzo = $pascua;
+        for ($diaSemanaSanta =  $diaComienzoSemanaSanta; $diaSemanaSanta <= $diaPascuaMarzo; $diaSemanaSanta++) {
 
             array_push($arraySemanaSantaMarzo, $diaSemanaSanta);
         }
@@ -222,6 +223,8 @@ function pascua($añoPascua)
     $arraySemanaSantaAbril = [];
 
     if ($pascuaMes == 04) {
+
+        $diaComienzoSemanaSanta = $pascua - 7;
 
         for ($diaSemanaSanta = ($diaComienzoSemanaSanta + 1); $diaSemanaSanta <= $pascua; $diaSemanaSanta++) {
 
@@ -275,7 +278,6 @@ function viernesNoLectivo($añoPascua)
 function mes($mes)
 
 {
-
     $mesGenerado = [];
 
     $dias = $mes["dias"];
