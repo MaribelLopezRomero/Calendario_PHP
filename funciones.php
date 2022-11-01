@@ -163,7 +163,7 @@ function calendario($año_calendario_, $dia_empieza)
 
 function esBisiesto($año)
 {
-    return !($año % 4) && ($año % 100 || !($año % 400));
+    return !($año % 4) && ($año % 100 || !($año % 400)); //bisiesto si es divisible entre 4 y no entre 100. O divisible entre 100 y 400
 }
 
 //Generar año
